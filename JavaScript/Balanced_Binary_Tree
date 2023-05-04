@@ -1,0 +1,14 @@
+var isBalanced = function(root) {
+    function DFS(node) {
+        if (node) {
+            const left = 1 + DFS(node.left)
+            const right = 1 + DFS(node.right)
+            const balSubTree = Math.abs(left - right) <= 1
+            
+            return balSubTree ? Math.max(left, right) : Infinity
+        }
+        return node
+    }
+    
+    return DFS(root) !== Infinity
+};
