@@ -1,0 +1,14 @@
+var preorderTraversal = function(root) {
+    var target = []
+    
+    function dfs(node){
+        if (!node){
+            return;
+        }
+        target.push(node.val)
+        dfs(node.left)
+        dfs(node.right)
+    }
+    dfs(root)
+    return target
+};
